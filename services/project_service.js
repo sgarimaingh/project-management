@@ -48,18 +48,10 @@ class ProjectService{
 
     static async getProjectById(req){
         try {
-            // Check if project is available in cache
             
-            // const cachedData = await redisClient.get(`project:${req.params.id}`);
-            // logger.info(cachedData);
-            // if (cachedData) {
-            //     return JSON.parse(cachedData);
-            // } else {
                 const project = await Project.findByPk(req.params.id);
-                // Store fetched data in cache
-                // await client.setex(`project:${req.params.id}`,3600,  JSON.stringify(project));
+            
                 return project;
-            // }
         } catch (error) {
             console.error('Error fetching project:', error);
             throw error;

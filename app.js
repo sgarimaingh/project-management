@@ -30,7 +30,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-
 sequelize.sync().then(() => {
   app.listen(3000, () => {
     logger.info('Server started on port 3000');
